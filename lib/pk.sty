@@ -1,0 +1,72 @@
+% define dependencies
+\usepackage{scrdate} % date helper
+\usepackage{scrtime} % time helper
+\usepackage{scrlayer-scrpage} % koma script helper
+\usepackage[utf8]{inputenc} % utf8 input encoding
+\usepackage[T1]{fontenc} % t1 font encoding
+\usepackage[ngerman]{babel} % german document language
+\usepackage[hyphens]{url} % break hyper links
+\usepackage{hyperref} % internal, external hyper links and pdf options
+\usepackage{lipsum} % blind text
+\usepackage{geometry} % helps to manage page geometry
+\usepackage{lastpage} % determine last page
+\usepackage{color} % implements colors
+\usepackage{xcolor} % implements modern colors
+\usepackage{multicol} % multiple columns environment
+
+% configure KOMAScript
+\KOMAoptions{twocolumn, usegeometry, fontsize=10pt}
+
+% define page geometry
+\geometry{top=2.5cm, right=1cm, bottom=2.5cm, left=1cm, foot=1cm, head=2cm, headsep=0.5cm,paper=landscape}
+
+% set default fonts
+\renewcommand*\rmdefault{lmodern}
+\renewcommand*\familydefault{\sfdefault}
+
+% style headings
+\RedeclareSectionCommand[
+    afterindent=false,
+    beforeskip=5mm,
+    tocnumwidth=3em,
+    afterskip=3mm,
+    font=\fontsize{13}{13}\selectfont,
+    style=section]{chapter}
+\RedeclareSectionCommand[
+    beforeskip=-1\baselineskip,
+    tocindent=3em,
+    tocnumwidth=4em,
+    afterskip=3mm]{section}
+\RedeclareSectionCommand[
+    tocnumwidth=4em,
+    tocindent=7em]{subsection}
+
+% define colors
+\definecolor{PrimaryColor}{HTML}{0076BD}
+\definecolor{WarnColor}{HTML}{FF0000}
+\definecolor{LighterGrey}{HTML}{EEEEEE}
+\definecolor{LightGrey}{HTML}{DDDDDD}
+\definecolor{LineLightGrey}{HTML}{CCCCCC}
+\definecolor{TextLightGrey}{HTML}{999999}
+\definecolor{HyperLink}{HTML}{0076BD}
+\definecolor{PlotColorOne}{HTML}{216778}
+\definecolor{PlotColorTwo}{HTML}{3B7821}
+\definecolor{PlotColorThree}{HTML}{782167}
+
+% configure pdf
+\hypersetup{
+  pdfpagemode=UseOutlines,
+  pdfmenubar=true,
+  pdftoolbar=true,
+  pdfwindowui=true,
+  pdflang=de,
+  pdfdisplaydoctitle=true,
+  breaklinks=true,
+  colorlinks=true,
+  linkcolor=HyperLink,
+  citecolor=HyperLink,
+  filecolor=HyperLink,
+  menucolor=HyperLink,
+  urlcolor=HyperLink,
+  bookmarksnumbered=true
+}
