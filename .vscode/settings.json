@@ -16,7 +16,8 @@
       "command": "tectonic",
       "args": [
         "-X",
-        "build"
+        "build",
+        "--print"
       ],
       "env": {}
     }
