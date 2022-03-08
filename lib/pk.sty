@@ -96,3 +96,6 @@ innertopmargin=\topskip,
 \newenvironment{taskitemwithoutcomment}[1]%
 {\newcommand{\taskitemtitle}{#1}\begin{taskitemframe}[#1\hfill \donecheckbox{\taskitemtitle}]}
 {\end{taskitemframe}}
+\newenvironment{taskitemwithoutdone}[1]%
+{\newcommand{\taskitemtitle}{#1}\begin{taskitemframe}[#1]}
+{\\\commenttextfield{\taskitemtitle}\end{taskitemframe}}
