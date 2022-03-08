@@ -13,6 +13,9 @@
 \usepackage{color} % implements colors
 \usepackage{xcolor} % implements modern colors
 \usepackage{multicol} % multiple columns environment
+\usepackage{mdframed} % enhanced framing
+\usepackage{enumitem} % enumeration
+\usepackage[style=swiss]{csquotes} % helps to style quotes
 
 % configure KOMAScript
 \KOMAoptions{twocolumn, usegeometry, fontsize=10pt}
@@ -71,3 +74,25 @@
   urlcolor=HyperLink,
   bookmarksnumbered=true
 }
+
+% commands and macros
+\newsavebox\TBox
+\renewcommand*{\LayoutTextField}[2]{#1 \raisebox{-0.1cm}{#2}}
+\renewcommand*{\LayoutCheckField}[2]{#1 \raisebox{-0.1cm}{#2}}
+\mdfdefinestyle{taskitemstyle}{%
+linecolor=gray!20,linewidth=1pt,%
+frametitlerule=true,%
+frametitlebackgroundcolor=gray!20,
+innertopmargin=\topskip,
+}
+\mdtheorem[style=taskitemstyle]{taskitemframe}{}
+
+\newcommand{\fieldname}[2]{#1-#2}
+\newcommand{\commenttextfield}[1]{\TextField[name=#1_comment,multiline=true,width=\textwidth]{}}
+\newcommand{\donecheckbox}[1]{\CheckBox[name=#1_done]{Erledigt:}}
+\newenvironment{taskitem}[1]%
+{\newcommand{\taskitemtitle}{#1}\begin{taskitemframe}[#1\hfill \donecheckbox{\taskitemtitle}]}
+{\\\commenttextfield{\taskitemtitle}\end{taskitemframe}}
+\newenvironment{taskitemwithoutcomment}[1]%
+{\newcommand{\taskitemtitle}{#1}\begin{taskitemframe}[#1\hfill \donecheckbox{\taskitemtitle}]}
+{\end{taskitemframe}}

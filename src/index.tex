@@ -7,7 +7,7 @@
 
 % set variables
 \newcommand{\varAuthor}{Robin Bühler}
-\newcommand{\varCompany}{Prüfungskomission 19 ZH} % Firmenname
+\newcommand{\varCompany}{Prüfungskommission 19 ZH} % Firmenname
 \newcommand{\varTitle}{Expertencheckliste: Durchführung einer IPA als Hauptexperte}
 \newcommand{\varVersion}{Version 2022}
 
@@ -18,19 +18,15 @@
 \cfoot[\varAuthor\\Version \varVersion]{\varAuthor\ / \varCompany\\ \varVersion}
 \rofoot[Seite \pagemark{} von \pageref{LastPage}]{Seite \pagemark{} von \pageref{LastPage}}
 
-\newsavebox\TBox
-\renewcommand*{\LayoutTextField}[2]{#1: \raisebox{-0.1cm}{#2}}
-
 % create document
 \begin{document}
+\begin{Form}
   \chapter*{\varTitle}
   Bei geschlechterspezifischen Personenbezeichnungen sind immer alle Geschlechter gemeint.\\
   \\
-  \begin{Form}
-    \sbox\TBox{Kandidat: }\TextField[charsize=10pt, borderwidth=0, width=\dimexpr\linewidth-\wd\TBox]{Kandidat}
-    \sbox\TBox{Arbeitstitel: }\TextField[charsize=10pt, borderwidth=0, width=\dimexpr\linewidth-\wd\TBox]{Arbeitstitel}
-    \sbox\TBox{Hauptexperte: }\TextField[charsize=10pt, borderwidth=0, width=\dimexpr\linewidth-\wd\TBox]{Hauptexperte}
-  \end{Form}
+  \sbox\TBox{Kandidat: }\TextField[charsize=10pt, width=\dimexpr\linewidth-\wd\TBox]{Kandidat:}
+  \sbox\TBox{Arbeitstitel: }\TextField[charsize=10pt, width=\dimexpr\linewidth-\wd\TBox]{Arbeitstitel:}
+  \sbox\TBox{Hauptexperte: }\TextField[charsize=10pt, width=\dimexpr\linewidth-\wd\TBox]{Hauptexperte:}
   \input{chapters/1_preparation}
   \input{chapters/2_before-start}
   \input{chapters/3_first-visit}
@@ -40,4 +36,5 @@
   \input{chapters/7_presentation}
   \input{chapters/8_assessment}
   \input{chapters/9_submit}
+\end{Form}
 \end{document}
