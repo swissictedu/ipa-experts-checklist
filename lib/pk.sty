@@ -18,11 +18,12 @@
 \usepackage[style=swiss]{csquotes} % helps to style quotes
 
 % configure KOMAScript
-\KOMAoptions{twocolumn, usegeometry, fontsize=10pt}
+\KOMAoptions{usegeometry, fontsize=10pt}
 
 % define page geometry
-\geometry{top=2.5cm, right=1cm, bottom=2.5cm, left=1cm, foot=1cm, head=2cm, headsep=0.5cm,paper=landscape}
+\geometry{top=2.5cm, right=1cm, bottom=2.5cm, left=1cm, foot=1cm, head=2cm, headsep=0.5cm}
 \setlength{\footheight}{24.0pt}
+\setcounter{secnumdepth}{\partnumdepth}
 
 % set default fonts
 \renewcommand*\rmdefault{lmodern}
@@ -88,7 +89,7 @@ innertopmargin=\topskip,
 \mdtheorem[style=taskitemstyle]{taskitemframe}{}
 
 \newcommand{\fieldname}[2]{#1-#2}
-\newcommand{\commenttextfield}[1]{\TextField[name=#1_comment,multiline=true,width=\textwidth]{}}
+\newcommand{\commenttextfield}[1]{\TextField[name=#1_comment,charsize=0pt,multiline=true,width=\textwidth]{}}
 \newcommand{\donecheckbox}[1]{\CheckBox[name=#1_done]{Erledigt:}}
 \newenvironment{taskitem}[1]%
 {\newcommand{\taskitemtitle}{#1}\begin{taskitemframe}[#1\hfill \donecheckbox{\taskitemtitle}]}
